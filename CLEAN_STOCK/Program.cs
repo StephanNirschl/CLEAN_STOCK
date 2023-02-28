@@ -20,6 +20,8 @@ namespace CLEAN_STOCK
                 DirectoryInfo di = new DirectoryInfo(@path);
                 float length;
                 float alllength = 0;
+                float lengthNOTUSE;
+                float alllengthNOTUSE = 0;
                 StringBuilder sblogger = new StringBuilder();
 
                 if (!Directory.Exists(@logfile))
@@ -71,9 +73,8 @@ namespace CLEAN_STOCK
 
                     else
                     {
-                        // string info11 = (fi.Name + " nicht gelöscht");
-                        // Console.WriteLine (info11);
-                        // sblogger.Append(info11 + "\n");
+                        lengthNOTUSE = (fi.Length) / 1024 / 1024;
+                        alllengthNOTUSE = (alllengthNOTUSE + lengthNOTUSE);
                     }
                 }
 
@@ -104,9 +105,8 @@ namespace CLEAN_STOCK
 
                     else
                     {
-                        // string info11 = (fi.Name + " nicht gelöscht");
-                        // Console.WriteLine(info11);
-                        // sblogger.Append(info11 + "\n");
+                        lengthNOTUSE = (fi.Length) / 1024 / 1024;
+                        alllengthNOTUSE = (alllengthNOTUSE + lengthNOTUSE);
                     }
                 }
 
@@ -115,9 +115,18 @@ namespace CLEAN_STOCK
                 Console.WriteLine();
                 float alllengthGB = alllength / 1024;
                 float alllengthTB = alllengthGB / 1024;
-                string info2 = ("\n" + "***** found " + alllength + " MB (" + alllengthGB + " GB --- " + alllengthTB + " TB)");
+                string info2 = ("\n" + "***** found to delete " + Math.Round(alllength, 3) + " MB (" + Math.Round(alllengthGB, 3) + " GB --- " + Math.Round(alllengthTB,3) + " TB)");
                 Console.WriteLine(info2);
                 sblogger.Append(info2 + "\n");
+
+                float alllengthGBNOTUSE = alllengthNOTUSE / 1024;
+                float alllengthTBNOTUSE = alllengthGBNOTUSE / 1024;
+                string info3 = ("\n" + "***** left over " + Math.Round(alllengthNOTUSE,3) + " MB (" + Math.Round(alllengthGBNOTUSE,3) + " GB --- " + Math.Round(alllengthTBNOTUSE,3) + " TB)");
+                Console.WriteLine(info3);
+                sblogger.Append(info3 + "\n");
+
+
+
 
                 sblogger.Append("\n");
 
