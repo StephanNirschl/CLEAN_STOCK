@@ -11,11 +11,12 @@ namespace CLEAN_STOCK
         {
             try
             {
-                string logfile = Settings.Default.logfile;
+                string logfile = Settings.Default.logfile1;
                 string path = Settings.Default.path;
                 string extension1 = Settings.Default.extension1;
+                int days1 = Settings.Default.days1;
                 string extension2 = Settings.Default.extension2;
-                int days = Settings.Default.days;
+                int days2 = Settings.Default.days2;
                 DirectoryInfo di = new DirectoryInfo(@path);
                 float length;
                 float alllength = 0;
@@ -30,15 +31,21 @@ namespace CLEAN_STOCK
                 today.ToString(@"yyyy-MM-dd_HH");
                 sblogger.Append(today + "\n");
 
-                string info = ("Suche " + extension1 + " und " + extension2 + " Dateien in " + path + " und lösche alle die älter sind als " + days + " Tage" + "\n" + "delete = " + Settings.Default.delete + "\n" + "see Settingsfile" + "\n" + "\n");
+                string info = ("Suche in " + path + " und lösche alle " + 
+                    "\n" + extension1 + " älter als " + days1 + " Tage und alle " + extension2 + " älter als " + days2 + " Tage" +
+                    "\n" + "delete = " + Settings.Default.delete + 
+                    "\n" + "see Settingsfile" + 
+                    "\n" + 
+                    "\n"
+                    );
+
                 Console.WriteLine(info);
                 sblogger.Append(info);
+                
 
-                Console.WriteLine();
 
-
-                sblogger.Append("***** search files " + extension1 + "\n");
-                Console.WriteLine("\n" + "***** search files " + extension1 + "\n");
+                sblogger.Append("***** search files " + extension1  + " Wait...");
+                Console.WriteLine("\n" + "***** search files " + extension1 + " Wait...");
                 foreach (var fi in di.GetFiles("*.stl", SearchOption.AllDirectories))
                 {
                     DateTime dtFile = fi.CreationTime;
@@ -47,9 +54,9 @@ namespace CLEAN_STOCK
                     int iAlter = Convert.ToInt32(NrOfDays);
 
                     // Lösche die Dateien
-                    if (iAlter >= days)
+                    if (iAlter >= days1)
                     {
-                        string info1 = (fi.Name + "*** gelöscht " + fi.CreationTime);
+                        string info1 = ("*** gelöscht = " + Settings.Default.delete + " --- " + fi.CreationTime + " --- " + fi.Name);
                         Console.WriteLine(info1);
                         sblogger.Append(info1 + "\n");
 
@@ -70,8 +77,8 @@ namespace CLEAN_STOCK
                     }
                 }
 
-                sblogger.Append("\n" + "***** search files " + extension2 + "\n");
-                Console.WriteLine("\n" + "***** search files " + extension2 + "\n");
+                sblogger.Append("\n" + "***** search files " + extension2 +  " Wait...");
+                Console.WriteLine("\n" + "***** search files " + extension2 + " Wait...");
                 foreach (var fi in di.GetFiles("*.vis", SearchOption.AllDirectories))
                 {
                     DateTime dtFile = fi.CreationTime;
@@ -80,9 +87,9 @@ namespace CLEAN_STOCK
                     int iAlter = Convert.ToInt32(NrOfDays);
 
                     // Lösche die Dateien
-                    if (iAlter >= days)
+                    if (iAlter >= days2)
                     {
-                        string info1 = (fi.Name + "*** gelöscht " + fi.CreationTime);
+                        string info1 = ("*** gelöscht " + Settings.Default.delete + " --- " + fi.CreationTime + " --- " + fi.Name);
                         Console.WriteLine(info1);
                         sblogger.Append(info1 + "\n");
 
@@ -107,15 +114,19 @@ namespace CLEAN_STOCK
 
                 Console.WriteLine();
                 float alllengthGB = alllength / 1024;
-                string info2 = ("\n" + "***** found " + alllength + " MB (" + alllengthGB + " GB)");
+                float alllengthTB = alllengthGB / 1024;
+                string info2 = ("\n" + "***** found " + alllength + " MB (" + alllengthGB + " GB --- " + alllengthTB + " TB)");
                 Console.WriteLine(info2);
                 sblogger.Append(info2 + "\n");
 
                 sblogger.Append("\n");
 
 
+
                 // Schreibe logfiles
-                File.AppendAllText(@logfile + "" + "file.log", sblogger + Environment.NewLine);
+                DateTime dt = DateTime.Now;
+                string date = dt.ToString("dd-MM-yyyy_HH-mm-ss");
+                File.AppendAllText(@logfile + date + ".log", sblogger + Environment.NewLine);
 
 
                 Console.WriteLine();

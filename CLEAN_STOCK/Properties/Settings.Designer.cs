@@ -12,7 +12,7 @@ namespace CLEAN_STOCK.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -49,6 +49,18 @@ namespace CLEAN_STOCK.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int days1 {
+            get {
+                return ((int)(this["days1"]));
+            }
+            set {
+                this["days1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("*.vis")]
         public string extension2 {
             get {
@@ -61,25 +73,25 @@ namespace CLEAN_STOCK.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("360")]
-        public int days {
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int days2 {
             get {
-                return ((int)(this["days"]));
+                return ((int)(this["days2"]));
             }
             set {
-                this["days"] = value;
+                this["days2"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("logfiles\\")]
-        public string logfile {
+        [global::System.Configuration.DefaultSettingValueAttribute("logfile\\")]
+        public string logfile1 {
             get {
-                return ((string)(this["logfile"]));
+                return ((string)(this["logfile1"]));
             }
             set {
-                this["logfile"] = value;
+                this["logfile1"] = value;
             }
         }
         

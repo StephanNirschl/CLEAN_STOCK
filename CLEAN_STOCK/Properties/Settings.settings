@@ -8,14 +8,17 @@
     <Setting Name="extension1" Type="System.String" Scope="User">
       <Value Profile="(Default)">*.stl</Value>
     </Setting>
+    <Setting Name="days1" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
     <Setting Name="extension2" Type="System.String" Scope="User">
       <Value Profile="(Default)">*.vis</Value>
     </Setting>
-    <Setting Name="days" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">360</Value>
+    <Setting Name="days2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="logfile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">logfiles\</Value>
+    <Setting Name="logfile1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">logfile\</Value>
     </Setting>
     <Setting Name="delete" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
