@@ -111,7 +111,6 @@ namespace CLEAN_STOCK
                 }
 
 
-
                 Console.WriteLine();
                 sblogger.Append("\n");
                 float alllengthGB = alllength / 1024;
