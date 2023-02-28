@@ -113,15 +113,16 @@ namespace CLEAN_STOCK
 
 
                 Console.WriteLine();
+                sblogger.Append("\n");
                 float alllengthGB = alllength / 1024;
                 float alllengthTB = alllengthGB / 1024;
-                string info2 = ("\n" + "***** found to delete " + Math.Round(alllength, 3) + " MB (" + Math.Round(alllengthGB, 3) + " GB --- " + Math.Round(alllengthTB,3) + " TB)");
+                string info2 = ("\n" + "***** " + Math.Round(alllength, 3) + " MB (" + Math.Round(alllengthGB, 3) + " GB --- " + Math.Round(alllengthTB,3) + " TB) zum löschen");
                 Console.WriteLine(info2);
-                sblogger.Append(info2 + "\n");
+                sblogger.Append(info2);
 
                 float alllengthGBNOTUSE = alllengthNOTUSE / 1024;
                 float alllengthTBNOTUSE = alllengthGBNOTUSE / 1024;
-                string info3 = ("\n" + "***** left over " + Math.Round(alllengthNOTUSE,3) + " MB (" + Math.Round(alllengthGBNOTUSE,3) + " GB --- " + Math.Round(alllengthTBNOTUSE,3) + " TB)");
+                string info3 = ("\n" + "***** " + Math.Round(alllengthNOTUSE,3) + " MB (" + Math.Round(alllengthGBNOTUSE,3) + " GB --- " + Math.Round(alllengthTBNOTUSE,3) + " TB) bleiben übrig");
                 Console.WriteLine(info3);
                 sblogger.Append(info3 + "\n");
 
