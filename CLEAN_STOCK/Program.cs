@@ -48,7 +48,7 @@ namespace CLEAN_STOCK
 
                 sblogger.Append("***** search files " + extension1  + " Wait...");
                 Console.WriteLine("\n" + "***** search files " + extension1 + " Wait...");
-                foreach (var fi in di.GetFiles("*.stl", SearchOption.AllDirectories))
+                foreach (var fi in di.GetFiles("*." + extension1 , SearchOption.AllDirectories))
                 {
                     DateTime dtFile = fi.CreationTime;
                     TimeSpan t = DateTime.Now - dtFile;
@@ -80,7 +80,7 @@ namespace CLEAN_STOCK
 
                 sblogger.Append("\n" + "***** search files " + extension2 +  " Wait...");
                 Console.WriteLine("\n" + "***** search files " + extension2 + " Wait...");
-                foreach (var fi in di.GetFiles("*.vis", SearchOption.AllDirectories))
+                foreach (var fi in di.GetFiles("*." + extension2, SearchOption.AllDirectories))
                 {
                     DateTime dtFile = fi.CreationTime;
                     TimeSpan t = DateTime.Now - dtFile;
